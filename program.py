@@ -1,4 +1,4 @@
-import glob
+#import glob
 import os
 
 
@@ -14,7 +14,11 @@ def main():
         print_header("We can't search for nothing!")
         return
 
-    search_folders(folder, text)
+    # search_folders(folder, text)
+
+    matches = search_folders(folder, text)
+    for m in matches:
+        print(m)
 
 
 def print_header():
@@ -40,8 +44,8 @@ def get_search_text_from_user():
 
 
 def search_folders(folder, text):
-    # items = os.listdir(folder)
-    items = glob.glob(os.path.join(folder, '*'))
+    items = os.listdir(folder)
+    #items = glob.glob(os.path.join(folder, '*'))
     for item in items:
         if os.path.isdir(item):
             continue
